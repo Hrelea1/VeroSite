@@ -1,4 +1,4 @@
-:root{--bg:#fff;--ink:#1c1c1c;--mute:#747474;--acc:#897c23;--rule:#e6e6e6;--rule2:#efefef;--mono:'Courier New',Courier,monospace}
+:root{--bg:#fff;--ink:#1c1c1c;--mute:#747474;--acc:#897c23;--sage:#C8D7BC;--sage2:#DCE6D4;--sage3:#B7C9A8;--rule:#e6e6e6;--rule2:#efefef;--mono:'Courier New',Courier,monospace;--wave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60' preserveAspectRatio='none'%3E%3Cpath fill='%23000' d='M0,30 C160,64 320,-4 520,28 C720,60 900,-4 1100,28 C1260,54 1360,8 1440,24 L1440,60 L0,60 Z'/%3E%3C/svg%3E")}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font:13px/1.7 var(--mono);overflow-x:clip}
@@ -18,6 +18,7 @@ section.wrap:not(.svc):not(.page-head){padding-top:72px;padding-bottom:72px}
 section[id]{scroll-margin-top:20px}
 
 .m,.stage .m{background:#f7f7f7 center/cover;width:100%;object-fit:cover;display:block;border-radius:0}
+.m.top,.stage .m.top{background-position:center 12%}
 .arch{border-radius:999px 999px 0 0}
 
 /* nav */
@@ -31,6 +32,7 @@ section[id]{scroll-margin-top:20px}
 
 /* hero */
 .hero{text-align:center;padding-top:96px!important}
+.hero-hours{margin-top:18px;font-size:12px;color:var(--mute);letter-spacing:.04em}
 .hero-grid{display:grid;grid-template-columns:257fr 272fr 272fr 380fr;gap:40px;margin-top:96px;align-items:start;text-align:left}
 .h1{height:373px}.h2{height:260px}.h3{height:360px}.h4{height:305px}
 .col .tag{font-size:18px;margin:20px 0;text-align:center}
@@ -48,6 +50,8 @@ section[id]{scroll-margin-top:20px}
 .cards .m{height:300px}.cards .tall .m{height:360px}
 .cards h3,.price h4{font-size:18px;margin-top:16px}
 .cards small{font-size:9px;color:var(--mute);letter-spacing:.05em}
+.card-txt{font-size:12px;color:var(--mute);margin-top:8px;line-height:1.55}
+.card-link{display:inline-block;margin-top:10px;font-size:12px;color:var(--acc);text-decoration:underline}
 
 /* benefits: pinned scroll steps on desktop, tap accordion on mobile */
 .ben{height:calc(15*60vh + 100vh);padding:0;border-top:1px solid var(--rule)}
@@ -84,7 +88,25 @@ section[id]{scroll-margin-top:20px}
 .team .m{height:466px}
 .team h2,.visit h2,.h2s{margin-bottom:28px}
 .team .it{font-size:19px;margin-bottom:28px}
-.visit{background:#f7f7f7}
+.visit{position:relative;background:var(--sage);--sbg:var(--sage)}
+.hero,#servicii,#echipa,#kinetoterapie,#criosauna,#masaj,.foot{position:relative;background:var(--sbg);border:0 solid transparent;border-image-source:linear-gradient(var(--sbg),var(--sbg));border-image-slice:0 fill;border-image-outset:0 100vw}
+.hero,#echipa,#kinetoterapie,#criosauna,#masaj{--sbg:var(--sage2)}
+#servicii{--sbg:var(--sage)}
+#servicii .cards article{background:#fff;padding:16px 16px 22px}
+.foot{--sbg:var(--sage3)}
+.foot .legal{color:var(--ink);opacity:.78}
+#servicii::before,#echipa:not(:first-child)::before,#kinetoterapie::before,#criosauna::before,#masaj::before,.visit::before,.foot::before,
+.hero::after,#servicii::after,#echipa:not(:has(+.visit))::after,#kinetoterapie::after,#criosauna::after,#masaj::after{
+  content:'';position:absolute;left:50%;width:100vw;height:clamp(40px,5.5vw,72px);background:var(--sbg);pointer-events:none;z-index:1;
+  -webkit-mask:var(--wave) center/100% 100% no-repeat;mask:var(--wave) center/100% 100% no-repeat
+}
+#servicii::before,#echipa:not(:first-child)::before,#kinetoterapie::before,#criosauna::before,#masaj::before,.visit::before,.foot::before{
+  bottom:calc(100% - 1px);transform:translateX(-50%)
+}
+.hero::after,#servicii::after,#echipa:not(:has(+.visit))::after,#kinetoterapie::after,#criosauna::after,#masaj::after{
+  top:calc(100% - 1px);transform:translateX(-50%) scale(-1,-1)
+}
+.ben,#kinetoterapie + .svc{border-top:0}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:110px}
 .visit p{margin-bottom:20px}
 .phone{font:400 26px var(--mono)}
