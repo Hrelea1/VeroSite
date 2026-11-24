@@ -1,4 +1,4 @@
-:root{--bg:#fff;--ink:#1c1c1c;--mute:#747474;--acc:#897c23;--sage:#C8D7BC;--sage2:#DCE6D4;--sage3:#B7C9A8;--rule:#e6e6e6;--rule2:#efefef;--mono:'Courier New',Courier,monospace;--wave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60' preserveAspectRatio='none'%3E%3Cpath fill='%23000' d='M0,30 C160,64 320,-4 520,28 C720,60 900,-4 1100,28 C1260,54 1360,8 1440,24 L1440,60 L0,60 Z'/%3E%3C/svg%3E")}
+:root{--bg:#F7F3EA;--ink:#1c1c1c;--mute:#635E4E;--acc:#897c23;--sage:#B8AF7E;--sage2:#CCC59E;--sage3:#A69C6B;--rule:#DFD9CA;--rule2:#EAE4D7;--mono:'Courier New',Courier,monospace;--wave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60' preserveAspectRatio='none'%3E%3Cpath fill='%23000' d='M0,30 C160,64 320,-4 520,28 C720,60 900,-4 1100,28 C1260,54 1360,8 1440,24 L1440,60 L0,60 Z'/%3E%3C/svg%3E")}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font:13px/1.7 var(--mono);overflow-x:clip}
@@ -17,7 +17,7 @@ section{padding:128px 0}
 section.wrap:not(.svc):not(.page-head){padding-top:72px;padding-bottom:72px}
 section[id]{scroll-margin-top:20px}
 
-.m,.stage .m{background:#f7f7f7 center/cover;width:100%;object-fit:cover;display:block;border-radius:0}
+.m,.stage .m{background:#EDE8DC center/cover;width:100%;object-fit:cover;display:block;border-radius:0}
 .m.top,.stage .m.top{background-position:center 12%}
 .arch{border-radius:999px 999px 0 0}
 
@@ -37,7 +37,7 @@ section[id]{scroll-margin-top:20px}
 .h1{height:373px}.h2{height:260px}.h3{height:360px}.h4{height:305px}
 .col .tag{font-size:18px;margin:20px 0;text-align:center}
 .btn{display:block;background:transparent;border:1px solid var(--acc);color:var(--acc);text-align:center;font:400 11px var(--mono);letter-spacing:.15em;padding:15px 12px;border-radius:3px;cursor:pointer;transition:background .2s,color .2s}
-.btn:hover,.btn.full:hover{background:var(--acc);color:#fff}
+.btn:hover,.btn.full:hover{background:var(--acc);color:var(--bg)}
 .btn.full{margin-top:80px;padding:18px;font-size:12px;letter-spacing:.2em}
 .link{display:block;text-align:right;color:var(--mute);font-size:10px;margin-top:20px}
 
@@ -66,10 +66,14 @@ section[id]{scroll-margin-top:20px}
 .rows i{font:400 14px var(--mono);color:var(--acc);width:36px}
 .rows span{flex:1}
 .rows b{font:400 22px var(--mono)}
-.rows p{max-height:0;overflow:hidden;padding:0 12px 0 72px;font-size:14px;opacity:0;transition:max-height .5s,opacity .5s,padding .5s}
+.rows p,.rows .pkg-g{max-height:0;overflow:hidden;padding:0 12px 0 72px;font-size:14px;opacity:0;transition:max-height .5s,opacity .5s,padding .5s,transform .5s}
+.rows .pkg-g{transform:translateY(6px)}
 .rows li.open button{font-weight:700;color:var(--acc)}
-.rows li.open p{max-height:200px;opacity:1;padding-bottom:6px}
-.rows li.open p:last-of-type{padding-bottom:18px}
+.rows li.open p,.rows li.open .pkg-g.on{max-height:220px;opacity:1;padding-bottom:6px;transform:none}
+.rows li.open p:last-of-type,.rows li.open .pkg-g:last-of-type.on{padding-bottom:18px}
+.pkg-r{display:grid;grid-template-columns:150px 1fr;gap:4px 12px;font-size:12.5px;line-height:1.45}
+.pkg-r b{font:700 12.5px/1.45 var(--mono)}
+.pkg-note{font-size:11px;color:var(--mute);margin-top:8px;line-height:1.45}
 .rows .w{opacity:0;display:inline-block;transform:translateY(6px);transition:opacity .5s,transform .5s}
 .rows p.on .w{opacity:1;transform:none;transition-delay:var(--d)}
 .stage{position:absolute;inset:0;pointer-events:none}
@@ -92,9 +96,12 @@ section[id]{scroll-margin-top:20px}
 .hero,#servicii,#echipa,#kinetoterapie,#criosauna,#masaj,.foot{position:relative;background:var(--sbg);border:0 solid transparent;border-image-source:linear-gradient(var(--sbg),var(--sbg));border-image-slice:0 fill;border-image-outset:0 100vw}
 .hero,#echipa,#kinetoterapie,#criosauna,#masaj{--sbg:var(--sage2)}
 #servicii{--sbg:var(--sage)}
-#servicii .cards article{background:#fff;padding:16px 16px 22px}
+#servicii .cards article{background:var(--bg);padding:16px 16px 22px}
 .foot{--sbg:var(--sage3)}
-.foot .legal{color:var(--ink);opacity:.78}
+.foot .legal{color:var(--ink);opacity:.85}
+.hero .muted,.hero .hero-hours,.hero .link,#servicii>.muted,.visit .muted,.visit small,#kinetoterapie small,#criosauna small,#masaj small{color:#3a3728}
+.hero .btn,#servicii>.btn,.visit .btn{border-color:var(--ink);color:var(--ink)}
+.hero .btn:hover,#servicii>.btn:hover,.visit .btn:hover{background:var(--ink);color:var(--bg)}
 #servicii::before,#echipa:not(:first-child)::before,#kinetoterapie::before,#criosauna::before,#masaj::before,.visit::before,.foot::before,
 .hero::after,#servicii::after,#echipa:not(:has(+.visit))::after,#kinetoterapie::after,#criosauna::after,#masaj::after{
   content:'';position:absolute;left:50%;width:100vw;height:clamp(40px,5.5vw,72px);background:var(--sbg);pointer-events:none;z-index:1;
@@ -236,7 +243,7 @@ dialog.cookie>a:hover{text-decoration:underline}
  .stage .m{position:static;display:none;width:auto!important;height:34vw!important;opacity:1;transform:none}
  .stage .m.show{display:block;animation:pop .5s ease}
  .rows button{gap:14px;padding:16px 4px;font-size:15px}
- .rows i{width:28px}.rows p{padding:0 4px 0 46px}.hint{display:none}
+ .rows i{width:28px}.rows p,.rows .pkg-g{padding:0 4px 0 46px}.pkg-r{grid-template-columns:120px 1fr;font-size:12px}.hint{display:none}
  .page-head{padding:48px 28px 8px}
  .svc{padding:48px 0}.svc.rev>.m{order:-1}.svc>.m,.svc>video.m{height:80vw}
  .more summary{font-size:14px;padding:18px 0}.prices{gap:20px;margin-bottom:40px}

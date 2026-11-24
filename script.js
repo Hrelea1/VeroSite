@@ -92,7 +92,7 @@ if (typeof document !== 'undefined') {
       const d = new FormData(form);
       const subj = (d.get('subiect') || 'Solicitare contact').toString().trim();
       const body = `Nume: ${d.get('nume')}\nE-mail: ${d.get('email')}\nTelefon: ${d.get('telefon') || '-'}\n\n${d.get('mesaj')}`;
-      location.href = `mailto:sidorbeautycenter@gmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
+      location.href = `mailto:recuperaremedicalasidor.srl@gmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
       const msg = form.querySelector('.form-msg');
       if (msg) { msg.textContent = 'Se deschide aplicația de e-mail cu mesajul pregătit.'; msg.hidden = false; }
     });
@@ -107,8 +107,8 @@ if (typeof document !== 'undefined') {
     let cur = -1;
 
     rows.forEach(r => {
-      r.ps = [...r.querySelectorAll('p')];
-      r.ps.forEach(p => p.innerHTML = p.textContent.trim().split(/\s+/).map((w, j) => `<span class="w" style="--d:${j * 40}ms">${w}</span>`).join(' '));
+      r.ps = [...r.querySelectorAll(':scope > p, :scope > .pkg-g')];
+      r.ps.forEach(p => { if (p.tagName === 'P') p.innerHTML = p.textContent.trim().split(/\s+/).map((w, j) => `<span class="w" style="--d:${j * 40}ms">${w}</span>`).join(' '); });
     });
 
     // ponytail: simple clamp cooldown, so a hard fling snaps back (no wheel-delta handling); fine for a landing page.
